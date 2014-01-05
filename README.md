@@ -1,5 +1,5 @@
 # WikipediaWorldmap
-![][image-1]
+![https://github.com/Tobystereo/WikipediaWorldmap/blob/master/output/English.png][English Language Wikipedia Articles]
 
 Visualization of geocoded Wikipedia articles by language - Processing
 
@@ -13,4 +13,3 @@ Some of the source files are large and require a lot of memory, make sure to inc
 ## Todo
 - Clean Russian and French files and or implement error handling during parsing
 
-[image-1]:	https://github.com/Tobystereo/WikipediaWorldmap/blob/master/output/English.png?raw=true
