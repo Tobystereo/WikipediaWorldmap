@@ -1,5 +1,5 @@
 # WikipediaWorldmap
-![https://github.com/Tobystereo/WikipediaWorldmap/blob/master/output/English.png][English Language Wikipedia Articles]
+![Geocoded Wikipedia Articles by language](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview.gif?raw=true)
 
 Visualization of geocoded Wikipedia articles by language - Processing
 
