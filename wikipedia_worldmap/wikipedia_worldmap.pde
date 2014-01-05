@@ -67,7 +67,7 @@ void setup() {
 
 void draw() {
   // this line will start pdf export, if the variable savePDF was set to true 
-  if (savePDF) beginRecord(PDF, timestamp()+"_##.pdf");
+  if (savePDF) beginRecord(PDF, language+"_##.pdf");
 
   colorMode(HSB, 360, 100, 100);
   rectMode(CENTER); 
