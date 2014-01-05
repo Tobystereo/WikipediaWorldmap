@@ -45,12 +45,14 @@ String language = "es";
 String[] lang = {"ar","bg","ca","cs","da","de","en","eo","es","fa","fi","fr","gl","he","hu","id","it","ja","ko","lt","ms","nl","nn","no","pl","pt","ro","ru","sk","sl","sr","sv","tr","uk","vi","vo","war","zh"};
 String message; 
 boolean doLoop = true;
-float pointSize = 0.5;
 float rootPointSize = 0.5;
+float pointSize = rootPointSize;
+
 
 void setup() {
   size(displayWidth, displayHeight,P3D);
 //  noCursor();
+  smooth();
   startMillis = System.currentTimeMillis();
   println((System.currentTimeMillis() - startMillis) + " ms to loadStrings");
   
@@ -91,8 +93,24 @@ void draw() {
 int currentLanguage;
 
 void keyPressed() {
-  if (key=='s' || key=='S') saveFrame(timestamp()+"_##.png");
+  if (key=='s' || key=='S') saveFrame(language+"_##.png");
   if (key=='p' || key=='P') {doLoop = true; savePDF = true; pointSize = 0.001;}
+  if (key==']') {
+    pointSize += 2.0;
+    doLoop = true;
+  }
+  if (key=='[') {
+    if(pointSize >= rootPointSize){
+      pointSize -= 2.0;  
+    } else {
+      pointSize = rootPointSize; 
+    }
+    doLoop = true;
+  }
+  if (key=='0') {
+    pointSize = rootPointSize;
+    doLoop = true;
+  }
   if (keyCode == DOWN) { 
     currentLanguage = d1.getId();
     println(currentLanguage);
@@ -186,53 +204,4 @@ void controlEvent(ControlEvent theEvent) {
   }
 }
 
-float PI = 3.14159265359;
-float TWOPI = 6.28318530718;
-float DE2RA = 0.01745329252;
-float RA2DE = 57.2957795129;
-float FLATTENING = 1.0/298.26;
-float PIOVER2 = 1.570796326795;
-int detail = 99999;
-float radius = 100.0;
 
-void drawSphere(float col, float row)
-{
-  pushMatrix();
-  translate(width/2,height/2);
-
-  fill(100,200,200,100);
-  int NumLatitudes = detail;
-  int NumLongitudes = detail;
-  
-  float start_lat = -90;
-  float start_lon = 0.0;
-  float R = radius;
-
-  float lat_incr = 180.0 / NumLatitudes;
-  float lon_incr = 360.0 / NumLongitudes;
-
-  float phi1 = (start_lon + col * lon_incr) * DE2RA;
-  float phi2 = (start_lon + (col + 1) * lon_incr) * DE2RA;
-
-  float theta1 = (start_lat + row * lat_incr) * DE2RA;
-  float theta2 = (start_lat + (row + 1) * lat_incr) * DE2RA;
-    
-  float[] u = new float[3];  
-  u[0] = R * cos(phi1) * cos(theta1);    //x
-  u[1] = R * sin(theta1);        //y
-  u[2] = R * sin(phi1) * cos(theta1);    //z
-  
-  float[] v = new float[3];  
-  v[0] = R * cos(phi1) * cos(theta2);    //x
-  v[1] = R * sin(theta2);        //y
-  v[2] = R * sin(phi1) * cos(theta2);    //z
-  
-  float[] w = new float[3];  
-  w[0] = R * cos(phi2) * cos(theta2);    //x
-  w[1] = R * sin(theta2);        //y
-  w[2] = R * sin(phi2) * cos(theta2);    //z
-  
-  point(u[0],u[1],u[2]);
-
-  popMatrix();
-}
