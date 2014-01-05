@@ -15,4 +15,5 @@ Some of the source files are large and require a lot of memory, make sure to inc
 - add drop-down for shape selection
 - add drop-down or slider for size selection
 - add refresh button
+- add zoom and pan mode
 
