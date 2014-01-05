@@ -12,4 +12,7 @@ Some of the source files are large and require a lot of memory, make sure to inc
 
 ## Todo
 - Clean Russian and French files and or implement error handling during parsing
+- add drop-down for shape selection
+- add drop-down or slider for size selection
+- add refresh button
 
