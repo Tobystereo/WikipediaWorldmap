@@ -13,9 +13,7 @@ Some of the source files are large and require a lot of memory, make sure to inc
 To increase the point size press ']', to decrease, '[', to reset '0'.
 
 ## Todo
-- Clean Russian and French files and or implement error handling during parsing
-- add drop-down for shape selection
-- add drop-down or slider for size selection
-- add refresh button
+- overlay mode 
+- opacity selector
 - add zoom and pan mode
 
