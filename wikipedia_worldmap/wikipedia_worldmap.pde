@@ -30,6 +30,7 @@
 */
 
 import processing.pdf.*;
+import java.util.*;
 
 // GUI using controlP5
 import controlP5.*;
@@ -131,16 +132,17 @@ void message(boolean loading, String country) {
 
 void changeLanguage(String language){
   message(true,"");
-  String[] lines = loadStrings("/data/csv/live_"+language+".csv");
+  String[] lines = loadStrings("data/csv/live_"+language+".csv");
   for (int i = 0; i < lines.length; i++) {
     // do something with each line:
     String[] words = split(lines[i], ',');
     float x = map(float(words[2]),-180,180,0,width);
     float y = map(float(words[1]),90,-90,0,height);
-    drawSphere(x,y);
+//    drawSphere(x,y);
   //  println(words[0]);
     fill(0);
-    rect(x,y,pointSize,pointSize);
+    ellipse(x, y, pointSize, pointSize); 
+//    rect(x,y,pointSize,pointSize);
   }
   message(false,language);
 }
