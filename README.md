@@ -10,6 +10,13 @@ Some of the source files are large and require a lot of memory, make sure to inc
 
 To increase the point size press ']', to decrease, '[', to reset '0'.
 
+## Downloads
+
+- [MacOSX - (167MB)](http://tobystereo.com/downloads/wikipediaworldmap.macosx.zip)
+- [Win(32) - (86MB)](http://tobystereo.com/downloads/wikipediaworldmap.windows32.zip)
+- [Win(64) - (86MB)](http://tobystereo.com/downloads/wikipediaworldmap.windows64.zip)
+
+
 ## Examples
 ### Arabic vs Farsi
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Arabic-vs-Farsi.png?raw=true)
