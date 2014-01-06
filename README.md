@@ -24,6 +24,7 @@ To increase the point size press ']', to decrease, '[', to reset '0'.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Esperanto-vs-Volapuk.png?raw=true)
 
 ### Japanese vs Chinese
+Japanese seems to be more interested in the mid-west of the U.S. And all of Italy, while Chinese has a more global outlook.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Japanese-vs-Chinese.png?raw=true)
 
 ### Japanese vs Korean
