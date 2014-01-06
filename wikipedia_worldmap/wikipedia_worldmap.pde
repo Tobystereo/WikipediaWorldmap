@@ -45,10 +45,10 @@ String languageA = "es";
 String languageB = "ca";
 String[] lang = {"ar","bg","ca","cs","da","de","en","eo","es","fa","fi","fr","gl","he","hu","id","it","ja","ko","lt","ms","nl","nn","no","pl","pt","ro","ru","sk","sl","sr","sv","tr","uk","vi","vo","war","zh"};
 String[] lang_label = {
-  "ar",
-  "bg",
+  "ar Arabic",
+  "bg Bulgarian",
   "ca Catalan",
-  "cs",
+  "cs Czech",
   "da Danish",
   "de German",
   "en English",
@@ -57,32 +57,32 @@ String[] lang_label = {
   "fa Farsi",
   "fi_Finnish",
   "fr French",
-  "gl",
-  "he",
+  "gl Galician",
+  "he Hebrew",
   "hu Hungarian",
-  "id",
+  "id Indonesian",
   "it Italian",
   "ja Japanese",
   "ko Korean",
   "lt Lithuanian",
-  "ms",
+  "ms Malay",
   "nl Dutch",
-  "nn",
-  "no",
+  "nn Nyorsk",
+  "no Norwegian",
   "pl Polish",
-  "pt",
+  "pt Portugese",
   "ro Romanian",
   "ru Russian",
-  "sk",
+  "sk Slovak",
   "sl Slovenian",
-  "sr",
+  "sr Serbian",
   "sv Swedish",
   "tr Turkish",
   "uk Ukrainian",
-  "vi",
+  "vi Vietnamese",
   "vo Volapük",
-  "war",
-  "zh Chinese"
+  "war Waray",
+  "zh Chinese Simplified"
 };
 String message; 
 boolean doLoop = true;
@@ -92,15 +92,28 @@ color mapcolorA, mapcolorB;
 float rootMapOpacity = 1.0;
 float mapOpacity = rootMapOpacity;
 color colorA, colorB;
+int colorA_h, colorA_s, colorA_b, colorB_h, colorB_s, colorB_b;
 
 
 void setup() {
   colorMode(HSB, 360, 100, 100, 100);
   size(displayWidth, displayHeight,P3D);
+  blendMode(BLEND);
 //  noCursor();
   smooth();
   startMillis = System.currentTimeMillis();
   println((System.currentTimeMillis() - startMillis) + " ms to loadStrings");
+  
+  colorA_h = 175;
+  colorA_s = 100;
+  colorA_b = 100;
+  colorA = color(colorA_h, colorA_s, colorA_b); // cyan  
+  
+  colorB_h = 300;
+  colorB_s = 100;
+  colorB_b = 100;
+  colorB = color(colorB_h, colorB_s, colorB_b); // magenta
+  
   
   cp5 = new ControlP5(this);
   // create a DropdownList
@@ -118,8 +131,7 @@ void setup() {
           
   customize(d2); // customize the first list
   
-  colorA = color(0, 100, 100); // red
-  colorB = color(60, 100, 100); // yellow
+  
   
 }
 
@@ -151,7 +163,7 @@ void draw() {
 int currentLanguage;
 
 void keyPressed() {
-  if (key=='s' || key=='S') saveFrame(languageA + "+" + languageB + "_##.png");
+  if (key=='s' || key=='S') saveFrame(languageA + "+" + languageB + "_##.jpg");
   if (key=='p' || key=='P') {doLoop = true; savePDF = true; pointSize = 0.001;}
   if (keyCode == LEFT) { // comma
     if (mapOpacity >= rootMapOpacity+10) {
@@ -242,9 +254,11 @@ void customize(DropdownList ddl) {
     }
     ddl.scroll(0);
     ddl.setColorBackground(color(0,0,0,15));
-    ddl.setColorActive(color(0, 100, 100, 1));
-    ddl.setColorForeground(color(0, 100, 100, 1));
-    ddl.setColorLabel(color(0, 100, 100));
+    println(colorA_h + " " + colorA_s + " " + colorA_b + " " + "1");
+    println(color(colorA_h, colorA_s, colorA_b, 1));
+    ddl.setColorActive(color(colorA_h, colorA_s, colorA_b, 1));
+    ddl.setColorForeground(color(colorA_h, colorA_s, colorA_b, 1));
+    ddl.setColorLabel(color(colorA_h, colorA_s, colorA_b));
   }
   else if (ddl == d2)
   {
@@ -259,9 +273,9 @@ void customize(DropdownList ddl) {
     }
     ddl.scroll(0);
     ddl.setColorBackground(color(0,0,0,15));
-    ddl.setColorActive(color(60, 100, 100, 1));
-    ddl.setColorForeground(color(60, 100, 100, 1));
-    ddl.setColorLabel(color(60, 100, 100));
+    ddl.setColorActive(color(colorB_h, colorB_s, colorB_b, 1));
+    ddl.setColorForeground(color(colorB_h, colorB_s, colorB_b, 1));
+    ddl.setColorLabel(color(colorB_h, colorB_s, colorB_b));
   }
 }
 
