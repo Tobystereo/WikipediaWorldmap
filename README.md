@@ -31,6 +31,7 @@ Japanese seems to be more interested in the mid-west of the U.S. And all of Ital
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Japanese-vs-Korean.png?raw=true)
 
 ### Spanish vs Catalan
+Catalan is spoken in Spain's Catalonia region, but somehow they are interested in a Brazilian region as well as a small spot in northeastern Africa.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Spanish-vs-Catalan.png?raw=true)
 
 ### Spanish vs French
