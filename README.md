@@ -37,6 +37,7 @@ Japanese seems to be more interested in the mid-west of the U.S. And all of Ital
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Spanish-vs-French.png?raw=true)
 
 ### Vietnamese vs Malay
+Vietnamese is interested in the Philippines, Japan, India, but mostly Europe while Malay focuses on France.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Vietnamese-vs-Malay.png?raw=true)
 
 ## Sources:
