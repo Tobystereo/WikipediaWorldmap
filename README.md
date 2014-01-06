@@ -3,6 +3,9 @@
 
 A comparative visualization of geocoded Wikipedia articles by language written in Processing.
 
+Pick a language from each drop-down menu. Both languagues' geocoded wikipedia articles will be mapped and overlayed. Explore.
+
+
 ## Sources:
 List of Geocoded Wikipedia articles from October 2012.
 
