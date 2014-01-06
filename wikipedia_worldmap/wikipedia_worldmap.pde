@@ -41,15 +41,18 @@ import controlP5.*;
 
 boolean savePDF = false;
 long startMillis;
-String language = "es";
+String languageA = "es";
+String languageB = "ca";
 String[] lang = {"ar","bg","ca","cs","da","de","en","eo","es","fa","fi","fr","gl","he","hu","id","it","ja","ko","lt","ms","nl","nn","no","pl","pt","ro","ru","sk","sl","sr","sv","tr","uk","vi","vo","war","zh"};
 String message; 
 boolean doLoop = true;
-float rootPointSize = 0.5;
+float rootPointSize = 15; // 0.5
 float pointSize = rootPointSize;
+color mapcolorA, mapcolorB;
 
 
 void setup() {
+  colorMode(HSB, 360, 100, 100);
   size(displayWidth, displayHeight,P3D);
 //  noCursor();
   smooth();
@@ -58,25 +61,33 @@ void setup() {
   
   cp5 = new ControlP5(this);
   // create a DropdownList
-  d1 = cp5.addDropdownList("languageList")
+  d1 = cp5.addDropdownList("languageListA")
           .setPosition(25, 50)
           .setHeight(height-100);
           ;
           
   customize(d1); // customize the first list
+  
+  d2 = cp5.addDropdownList("languageListB")
+          .setPosition(125, 50)
+          .setHeight(height-100);
+          ;
+          
+  customize(d2); // customize the first list
 }
 
 
 void draw() {
   // this line will start pdf export, if the variable savePDF was set to true 
-  if (savePDF) beginRecord(PDF, language+"_##.pdf");
+  if (savePDF) beginRecord(PDF, languageA + "+" + languageB + "_##.pdf");
 
   colorMode(HSB, 360, 100, 100);
   rectMode(CENTER); 
   noStroke();
   if(doLoop){
     background(0,0,100);
-    changeLanguage(language);
+    changeLanguageA(languageA);
+    changeLanguageB(languageB);
     doLoop = false;
   }
 
@@ -93,14 +104,14 @@ void draw() {
 int currentLanguage;
 
 void keyPressed() {
-  if (key=='s' || key=='S') saveFrame(language+"_##.png");
+  if (key=='s' || key=='S') saveFrame(languageA + "+" + languageB + "_##.png");
   if (key=='p' || key=='P') {doLoop = true; savePDF = true; pointSize = 0.001;}
   if (key==']') {
     pointSize += 2.0;
     doLoop = true;
   }
   if (key=='[') {
-    if(pointSize >= rootPointSize){
+    if(pointSize >= 2.5){
       pointSize -= 2.0;  
     } else {
       pointSize = rootPointSize; 
@@ -148,41 +159,76 @@ void message(boolean loading, String country) {
   }
 }
 
-void changeLanguage(String language){
+void changeLanguageA(String language){
   message(true,"");
   String[] lines = loadStrings("data/csv/live_"+language+".csv");
-  for (int i = 0; i < lines.length; i++) {
+  for (int i = 0; i < lines.length; i++) {  
     // do something with each line:
     String[] words = split(lines[i], ',');
     float x = map(float(words[2]),-180,180,0,width);
     float y = map(float(words[1]),90,-90,0,height);
-//    drawSphere(x,y);
-  //  println(words[0]);
-    fill(0);
+    mapcolorA = color(60, 100, 100, 1);
+    fill(mapcolorA);
     ellipse(x, y, pointSize, pointSize); 
-//    rect(x,y,pointSize,pointSize);
+  }
+  message(false,language);
+}
+
+void changeLanguageB(String language){
+  message(true,"");
+  String[] lines = loadStrings("data/csv/live_"+language+".csv");
+  for (int i = 0; i < lines.length; i++) {  
+    // do something with each line:
+    String[] words = split(lines[i], ',');
+    float x = map(float(words[2]),-180,180,0,width);
+    float y = map(float(words[1]),90,-90,0,height);
+    mapcolorB = color(0, 100, 100, 1);
+    fill(mapcolorB);
+    ellipse(x, y, pointSize, pointSize); 
   }
   message(false,language);
 }
 
 void customize(DropdownList ddl) {
   // a convenience function to customize a DropdownList
-//  ddl.setBackgroundColor(color(255,255,255,0));
-  ddl.setItemHeight(18);
-  ddl.setBarHeight(25);
-  ddl.captionLabel().set("Select Language");
-  ddl.captionLabel().style().marginTop = 8;
-  ddl.captionLabel().style().marginLeft = 3;
-  ddl.valueLabel().style().marginTop = 3;
-  for (int i=0;i<lang.length;i++) {
-    ddl.setColorLabel(color(map(i,0,lang.length,0,255),map(i,0,lang.length,0,255),map(i,0,lang.length,0,255)));
-    ddl.addItem(lang[i],i);
+  
+  if(ddl == d1)
+  {
+  //  ddl.setBackgroundColor(color(255,255,255,0));
+    ddl.setItemHeight(18);
+    ddl.setBarHeight(25);
+    ddl.captionLabel().set("Select Language A");
+    ddl.captionLabel().style().marginTop = 8;
+    ddl.captionLabel().style().marginLeft = 3;
+    ddl.valueLabel().style().marginTop = 3;
+    for (int i=0;i<lang.length;i++) {
+      ddl.setColorLabel(color(60, 100, 100));
+      ddl.addItem(lang[i],i);
+    }
+    ddl.scroll(0);
+    ddl.setColorBackground(color(0,0,0,15));
+    ddl.setColorActive(color(60, 100, 100, 1));
+    ddl.setColorForeground(color(60, 100, 100, 1));
+    ddl.setColorLabel(color(60, 100, 100));
   }
-  ddl.scroll(0);
-  ddl.setColorBackground(color(0,0,0,15));
-  ddl.setColorActive(color(100, 0, 0, 100));
-  ddl.setColorForeground(color(150, 0, 0,50));
-  ddl.setColorLabel(color(255, 50, 50));
+  else if (ddl == d2)
+  {
+    ddl.setItemHeight(18);
+    ddl.setBarHeight(25);
+    ddl.captionLabel().set("Select Language B");
+    ddl.captionLabel().style().marginTop = 8;
+    ddl.captionLabel().style().marginLeft = 3;
+    ddl.valueLabel().style().marginTop = 3;
+    for (int i=0;i<lang.length;i++) {
+      ddl.setColorLabel(color(0, 100, 100));
+      ddl.addItem(lang[i],i);
+    }
+    ddl.scroll(0);
+    ddl.setColorBackground(color(0,0,0,15));
+    ddl.setColorActive(color(0, 100, 100, 1));
+    ddl.setColorForeground(color(0, 100, 100, 1));
+    ddl.setColorLabel(color(0, 100, 100));
+  }
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -196,7 +242,7 @@ void controlEvent(ControlEvent theEvent) {
     // check if the Event was triggered from a ControlGroup
     println("event from group : "+theEvent.getGroup().getValue()+" from "+theEvent.getGroup());
     int theIndex = int(theEvent.getGroup().getValue());
-    language = lang[theIndex];
+    languageA = lang[theIndex];
     doLoop = true;
   } 
   else if (theEvent.isController()) {
