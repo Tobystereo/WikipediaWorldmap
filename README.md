@@ -22,7 +22,7 @@ Both are small countries, yet the Danish display more of a regional interest whi
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Dutch-vs-Danish.png?raw=true)
 
 ### Esperanto vs Volapük
-Both made-up languages, Esperanto doesn't seem very interested in the U.S., but does cover Japan. Volakpük, however, does know the U.S. Ans has a curiosity for the Baltics and some place in south west Africa.
+Both made-up languages, Esperanto doesn't seem very interested in the U.S., but does cover Japan. Volakpük, however, does know the U.S. and has a curiosity for the Baltics and some place in south west Africa.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Esperanto-vs-Volapuk.png?raw=true)
 
 ### Japanese vs Chinese
