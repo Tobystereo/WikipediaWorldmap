@@ -1,5 +1,5 @@
 # Comparative Wikipedia Worldmap
-![Geocoded Wikipedia Articles by language](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview.gif?raw=true)
+![Geocoded Wikipedia Articles by language](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview_overlay.gif?raw=true)
 
 A comparative visualization of geocoded Wikipedia articles by language written in Processing.
 
