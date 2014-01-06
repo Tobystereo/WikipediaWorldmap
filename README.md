@@ -1,4 +1,4 @@
-# Comparative Wikipedia Worldmap
+# Comparative Wikipedia Worldmap by @tobystereo
 ![Geocoded Wikipedia Articles by language](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/preview_animated.gif?raw=true)
 
 A comparative visualization of geocoded Wikipedia articles by language written in Processing.
