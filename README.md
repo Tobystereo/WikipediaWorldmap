@@ -16,4 +16,6 @@ Some of the source files are large and require a lot of memory, make sure to inc
 To increase the point size press ']', to decrease, '[', to reset '0'.
 
 
-by @tobystereo
+
+
+A [@tobystereo](http://twitter.com/tobystereo) project.
