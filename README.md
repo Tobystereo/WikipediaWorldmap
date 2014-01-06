@@ -18,6 +18,7 @@ To increase the point size press ']', to decrease, '[', to reset '0'.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Bulgarian-vs-Romanian.png?raw=true)
 
 ### Dutch vs Danish
+Both are small countries, yet the Danish display more of a regional interest while the Durch have a global mindset.
 ![](https://github.com/Tobystereo/WikipediaWorldmap/blob/master/preview-assets/Dutch-vs-Danish.png?raw=true)
 
 ### Esperanto vs Volapük
