@@ -11,9 +11,3 @@ List of Geocoded Wikipedia articles from October 2012.
 Some of the source files are large and require a lot of memory, make sure to increase Processing's memory allowance in 'Settings'.
 
 To increase the point size press ']', to decrease, '[', to reset '0'.
-
-## Todo
-- overlay mode 
-- opacity selector
-- add zoom and pan mode
-
